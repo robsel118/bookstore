@@ -30,6 +30,16 @@ public class BookController {
 		model.addAttribute("books", books);
 		return "booklist";
 	}
+	  @RequestMapping(value = "/")
+	  public String root() {
+	    return "redirect:booklist";
+	}
+	@RequestMapping("/login")
+	public String loginPage() {
+		
+	
+		return "login";
+	}
 
 	@RequestMapping("/add")
 	public String addBook(Model model) {
