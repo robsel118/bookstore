@@ -8,8 +8,9 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id",nullable=false,updatable=false)
 	private long id;
 	
@@ -55,6 +56,11 @@ public class User {
 		this.role = role;
 	}
 
+	
+	public User() {
+		super();
+	}
+
 	public User(String username, String passwordHash, String role) {
 		super();
 		this.username = username;
@@ -62,6 +68,10 @@ public class User {
 		this.role = role;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", passwordHash=" + passwordHash + ", role=" + role + "]";
+	}
+
 	
 }

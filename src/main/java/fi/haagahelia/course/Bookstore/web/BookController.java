@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import fi.haagahelia.course.Bookstore.BookstoreApplication;
 import fi.haagahelia.course.Bookstore.domain.Book;
 import fi.haagahelia.course.Bookstore.domain.Category;
 import fi.haagahelia.course.Bookstore.domain.repository.BookRepository;
@@ -32,12 +30,11 @@ public class BookController {
 	}
 	  @RequestMapping(value = "/")
 	  public String root() {
-	    return "redirect:booklist";
+	    return "redirect:index";
 	}
 	@RequestMapping("/login")
 	public String loginPage() {
 		
-	
 		return "login";
 	}
 
@@ -68,6 +65,11 @@ public class BookController {
 	 @RequestMapping(value = "/save", method = RequestMethod.POST)
 	  public String save(@ModelAttribute Book book) {
 	    repository.save(book);
+	    return "redirect:index";
+	}
+	 @RequestMapping(value = "/logout", method = RequestMethod.POST)
+	  public String logout() {
+	   
 	    return "redirect:index";
 	}
 }

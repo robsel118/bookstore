@@ -1,6 +1,6 @@
-package fi.haagahelia.course.security;
+package fi.haagahelia.course.Bookstore.security;
 
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,8 +13,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	  @Autowired
-	  private UserDetailServiceImpl userDetailsService;
+	@Autowired
+	private UserDetailServiceImpl userDetailsService;
+	  
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
