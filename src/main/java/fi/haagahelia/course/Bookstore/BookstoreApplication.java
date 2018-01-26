@@ -14,6 +14,7 @@ import fi.haagahelia.course.Bookstore.domain.User;
 import fi.haagahelia.course.Bookstore.domain.repository.BookRepository;
 import fi.haagahelia.course.Bookstore.domain.repository.CategoryRepository;
 import fi.haagahelia.course.Bookstore.domain.repository.UserRepository;
+
 @SpringBootApplication
 public class BookstoreApplication {
 
@@ -33,11 +34,11 @@ public class BookstoreApplication {
 			User b = new User("admin", encrypter.encode("admin"), "ADMIN");
 			uRep.save(a);
 			uRep.save(b);
-			
+
 			log.warn("fetch all users");
-		      for (User user : uRep.findAll()) {
-		        log.warn(user.toString());
-		}
+			for (User user : uRep.findAll()) {
+				log.warn(user.toString());
+			}
 
 			log.info("save a couple of categories");
 			cRep.save(new Category("Survival"));

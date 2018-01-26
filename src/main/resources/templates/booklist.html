@@ -9,7 +9,8 @@
 </head>
 <body>
 
-	<h1>Here is the list of books</h1>
+	<h1
+		th:text="'Welcome '+${#httpServletRequest.remoteUser}+', here is the list of books '"></h1>
 	<table class="table table-striped">
 		<thead>
 			<tr style="font-weight: bold">
@@ -27,8 +28,9 @@
 			<td th:text="${book.isbn}" />
 			<td th:text="${book.year}" />
 			<td th:text="${book.category.name}" />
-			<td sec:authorize="hasRole('ADMIN')"><a
-				th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a
+				th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>
+			</td>
 			<td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
 		</tr>
 	</table>
